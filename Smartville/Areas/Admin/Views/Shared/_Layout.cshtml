@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="/Content/assets/admin/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="/Content/assets/admin/css/nifty.min.css" rel="stylesheet">
+
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="/Content/assets/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="mainnav-lg">
+        
+
+        @Html.Partial("_NavBar")
+        
+        <div class="boxed">
+
+            @RenderBody()
+
+            @Html.Partial("_MainNavigation")
+            @Html.Partial("_ASide")
+            
+
+        </div>
+
+        @Html.Partial("_Footer")
+        @Html.Partial("_ScrollTop")
+
+
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="/Content/assets/admin/js/jquery-2.1.1.min.js"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="/Content/assets/admin/js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="/Content/assets/admin/js/nifty.min.js"></script>
+
+
+    <!--Morris.js [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/morris-js/morris.min.js"></script>
+    <script src="/Content/assets/admin/plugins/morris-js/raphael-js/raphael.min.js"></script>
+
+
+    <!--Sparkline [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+
+    <!--Skycons [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/skycons/skycons.min.js"></script>
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/switchery/switchery.min.js"></script>
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+    <!--DataTables [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/Content/assets/admin/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="/Content/assets/admin/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
+    <script src="~/assets/admin/js/admin.js"></script>
+
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</body>
+</html>

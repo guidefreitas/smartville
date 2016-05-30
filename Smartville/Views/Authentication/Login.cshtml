@@ -1,0 +1,28 @@
+﻿@model Smartville.ViewModel.VMLogin
+
+@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.RedirectTo)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Informe o email" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Informe a senha" })
+    </div>
+
+    
+    <button type="submit" class="btn btn-default">Entrar</button>
+}

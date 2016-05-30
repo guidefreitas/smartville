@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using Smartville.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Smartville
@@ -8,6 +9,7 @@ namespace Smartville
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new UserInfoFilter());
         }
     }
 }
