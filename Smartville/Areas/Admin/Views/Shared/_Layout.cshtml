@@ -24,49 +24,27 @@
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="/Content/assets/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-
-
-    <!--
-
-    REQUIRED
-    You must include this in your project.
-
-    RECOMMENDED
-    This category must be included but you may modify which plugins or components which should be included in your project.
-
-    OPTIONAL
-    Optional plugins. You may choose whether to include it in your project or not.
-
-    DEMONSTRATION
-    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
-
-    SAMPLE
-    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
-
-
-    Detailed information and more samples can be found in the document.
-
-    -->
-
-
 </head>
-
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
     <div id="container" class="mainnav-lg">
-        
 
         @Html.Partial("_NavBar")
         
         <div class="boxed">
+            <div id="content-container">
+                <div id="page-title">
+                    <h1 class="page-header text-overflow">@ViewBag.Title</h1>
+                </div>
 
-            @RenderBody()
+                <div id="page-content">
+                    @Html.Flash()
+                    @RenderBody()
+                </div>
+            </div>
 
             @Html.Partial("_MainNavigation")
             @Html.Partial("_ASide")
-            
 
         </div>
 
@@ -123,27 +101,6 @@
 
     <script src="~/assets/admin/js/admin.js"></script>
 
-    <!--
-
-    REQUIRED
-    You must include this in your project.
-
-    RECOMMENDED
-    This category must be included but you may modify which plugins or components which should be included in your project.
-
-    OPTIONAL
-    Optional plugins. You may choose whether to include it in your project or not.
-
-    DEMONSTRATION
-    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
-
-    SAMPLE
-    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
-
-
-    Detailed information and more samples can be found in the document.
-
-    -->
 
 
 </body>

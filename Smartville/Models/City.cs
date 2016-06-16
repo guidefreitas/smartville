@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Smartville.Models
@@ -11,5 +13,7 @@ namespace Smartville.Models
 
         [Required]
         public State State { get; set; }
+
+        public virtual ICollection<Institute> Institutes { get; set; }
     }
 }

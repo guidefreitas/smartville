@@ -38,13 +38,36 @@
 
                         <!--Menu list item-->
                         <li class="active-link">
-                            <a href="index.html">
+                            <a href="/admin/home/index">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="menu-title">
                                     <strong>Dashboard</strong>
-                                    <span class="label label-success pull-right">Top</span>
                                 </span>
                             </a>
+                        </li>
+
+                        <!--Menu list item-->
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span class="menu-title">
+                                    <strong>Cadastros</strong>
+                                </span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse">
+                                <li>
+                                    @Html.ActionLink("Países", "Index", new { area = "Admin", controller = "Country"})
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Estados", "Index", new { area = "Admin", controller = "State" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Cidades", "Index", new { area = "Admin", controller = "City" })
+                                </li>
+                            </ul>
                         </li>
 
                         <!--Menu list item-->

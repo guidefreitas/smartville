@@ -1,0 +1,57 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="/Content/assets/admin/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="/Content/assets/admin/css/nifty.min.css" rel="stylesheet">
+
+
+    <link href="~/Content/assets/admin/css/style.css" rel="stylesheet" />
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="/Content/assets/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="container" class="cls-container">
+
+        @Html.Flash()
+        @RenderBody()
+        
+
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="/Content/assets/admin/js/jquery-2.1.1.min.js"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="/Content/assets/admin/js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="/Content/assets/admin/plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="/Content/assets/admin/js/nifty.min.js"></script>
+
+</body>
+</html>
+

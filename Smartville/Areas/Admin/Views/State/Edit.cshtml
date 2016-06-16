@@ -1,0 +1,11 @@
+﻿@model Smartville.Areas.Admin.ViewModels.VMEditCreateState
+@{
+    ViewBag.Title = "Estado";
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_Form", Model)
+}

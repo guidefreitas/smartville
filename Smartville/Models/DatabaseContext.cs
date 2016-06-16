@@ -14,6 +14,7 @@ namespace Smartville.Models
     {
         public DatabaseContext() : base("DefaultConnection")
         {
+            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
         }
 
         public DbSet<Country> Countries { get; set; }
@@ -31,7 +32,7 @@ namespace Smartville.Models
             */
             
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Entity<User>()
                     .HasIndex("IX_User_Email",     

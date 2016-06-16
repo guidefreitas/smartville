@@ -135,7 +135,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\ViewModels\VMCountry.cs" />
+    <Compile Include="Areas\Admin\Controllers\CityController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StateController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\VMEditCreateCity.cs" />
+    <Compile Include="Areas\Admin\ViewModels\VMEditCreateState.cs" />
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\SensorsController.cs" />
     <Compile Include="Areas\Api\ViewModels\CityViewModel.cs" />
@@ -151,10 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605301301373_Init.cs" />
-    <Compile Include="Migrations\201605301301373_Init.Designer.cs">
-      <DependentUpon>201605301301373_Init.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Helpers\FlashHelpers.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\City.cs" />
@@ -5307,15 +5307,23 @@
     <Content Include="Content\assets\site\plugins\vector-map\README.md" />
     <Content Include="Content\assets\site\plugins\wow-animations\LICENSE-MIT" />
     <Content Include="Content\assets\site\plugins\wow-animations\README.md" />
+    <Content Include="Areas\Admin\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Country\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Admin\Views\State\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\State\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\State\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\State\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\State\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\City\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\City\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\City\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\City\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\City\Index.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Smartville - Web Deploy.pubxml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Authentication\Unauthorized.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605301301373_Init.resx">
-      <DependentUpon>201605301301373_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,6 +3,8 @@
     ViewBag.Title = "País";
 }
 
+@Html.ValidationSummary()
+
 @using (Html.BeginForm())
 {
     @Html.Partial("_Form", Model)

@@ -1,28 +1,57 @@
 ﻿@model Smartville.ViewModel.VMLogin
 
 @{
-        Layout = "~/Views/Shared/_Layout.cshtml";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
         ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<!-- BACKGROUND IMAGE -->
+<!--===================================================-->
+<div id="bg-overlay" class="bg-img img-balloon"></div>
 
-@Html.ValidationSummary()
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(m => m.RedirectTo)
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Informe o email" })
+<!-- HEADER -->
+<!--===================================================-->
+<div class="cls-header cls-header-lg">
+    <div class="cls-brand">
+        <a class="box-inline" href="index.html">
+            <span class="brand-title">Bem Vindo</span>
+        </a>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Informe a senha" })
+</div>
+<!--===================================================-->
+<!-- LOGIN FORM -->
+<!--===================================================-->
+<div class="cls-content">
+    <div class="cls-content-sm panel">
+        <div class="panel-body">
+            <p class="pad-btm">Login</p>
+            @Html.ValidationSummary()
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Informe o email" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Informe a senha" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-group text-right">
+                            <button class="btn btn-success text-uppercase" type="submit">Entrar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
-
-    
-    <button type="submit" class="btn btn-default">Entrar</button>
-}
+    <div class="pad-ver">
+        <a href="#" class="btn-link mar-rgt">Esqueci minha senha?</a>
+    </div>
+</div>

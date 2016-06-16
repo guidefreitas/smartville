@@ -73,7 +73,7 @@ namespace Smartville.Controllers
                     return Redirect(vm.RedirectTo);
                 }
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
 
             }
             return View(vm);

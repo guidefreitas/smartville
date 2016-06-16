@@ -8,7 +8,7 @@ namespace Smartville.Models
 {
     public class Country : BaseModel
     {
-        [Required]
+        [Required(ErrorMessage = "Informe o nome")]
         [StringLength(100)]
         public String Name { get; set; }
 

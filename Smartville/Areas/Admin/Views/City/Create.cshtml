@@ -1,0 +1,9 @@
+﻿@model Smartville.Areas.Admin.ViewModels.VMEditCreateCity
+@{
+    ViewBag.Title = "Cidade";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_Form", Model)
+}
