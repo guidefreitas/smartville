@@ -1,0 +1,58 @@
+﻿@model List<Smartville.Models.Sensor>
+@{
+    ViewBag.Title = "Sensores";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sensores</h3>
+            </div>
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 table-toolbar-left">
+                            @Html.ActionLink("Adicionar Sensor", "Create", "Sensor", new { area = "Admin" }, new { @class = "btn btn-mint btn-labeled fa fa-plus" })
+                            <button class="btn btn-default"><i class="fa fa-print"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="demo-dt-basic" class="table table-striped" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>Num. Série</td>
+                                <td>Nome</td>
+                                <td>Cidade</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var sensor in Model)
+                            {
+                                <tr>
+                                    <td>@sensor.Id</td>
+                                    <td>@sensor.SerialNumber</td>
+                                    <td>@sensor.Name</td>
+                                    <td>@sensor.City.Name</td>
+                                    <td>
+                                        @Html.ActionLink("Ver detalhes", "Detail", new { id = sensor.Id }, new { @class = "btn btn-success btn-labeled fa fa-area-chart" })
+                                        @Html.ActionLink("Alterar", "Edit", new { id = sensor.Id }, new { @class = "btn btn-primary btn-labeled fa fa-edit" })
+                                        @Html.ActionLink("Apagar", "Delete", new { id = sensor.Id }, new { @class = "btn btn-danger btn-labeled fa fa-trash" })
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

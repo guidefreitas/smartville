@@ -110,6 +110,70 @@ namespace Smartville.Areas.Api.Controllers
         }
 
         [HttpGet]
+        public ActionResult CreateStatus(string id)
+        {
+            try
+            {
+                var sensor = db.Sensors.Where(m => m.SerialNumber == id).FirstOrDefault();
+                if(sensor == null)
+                    return Content("ERROR|Sensor not found");
+
+                if (Request.Params.AllKeys.Contains("Boia1"))
+                {
+                    var paramValue = Request.Params.Get("Boia1");
+                    var status = new SensorStatus();
+                    status.Value = paramValue;
+                    status.StatusType = SensorStatusType.FLOOD;
+                    status.CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    status.UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    sensor.Statuses.Add(status);
+                }
+
+                if (Request.Params.AllKeys.Contains("Boia2"))
+                {
+                    var paramValue = Request.Params.Get("Boia2");
+                    var status = new SensorStatus();
+                    status.Value = paramValue;
+                    status.StatusType = SensorStatusType.FLOOD;
+                    status.CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    status.UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    sensor.Statuses.Add(status);
+                }
+
+                if (Request.Params.AllKeys.Contains("Boia3"))
+                {
+                    var paramValue = Request.Params.Get("Boia3");
+                    var status = new SensorStatus();
+                    status.Value = paramValue;
+                    status.StatusType = SensorStatusType.FLOOD;
+                    status.CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    status.UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    sensor.Statuses.Add(status);
+                }
+
+                if (Request.Params.AllKeys.Contains("Temperatura"))
+                {
+                    var paramValue = Request.Params.Get("Temperatura");
+                    var status = new SensorStatus();
+                    status.Value = paramValue;
+                    status.StatusType = SensorStatusType.TEMPERATURE;
+                    status.CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    status.UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(sensor.TimeZone));
+                    sensor.Statuses.Add(status);
+                }
+
+                db.SaveChanges();
+                return Content("OK");
+            }
+            catch
+            {
+                return Content("ERROR|Internal server error");
+            }
+            
+            
+        }
+
+        [HttpGet]
         public ActionResult Statuses(int id)
         {
             try
@@ -166,57 +230,5 @@ namespace Smartville.Areas.Api.Controllers
             }
             
         }
-
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public JsonResult CreateStatus()
-        {
-            try
-            {
-                String jsonData = new StreamReader(Request.InputStream).ReadToEnd();
-               Newtonsoft.Json.Linq.JObject token = JObject.Parse(jsonData);
-                String serialNumber = (string)token.SelectToken("SensorSerialNumber");
-                var sensor = db.Sensors.Where(s => s.SerialNumber == serialNumber).FirstOrDefault();
-                if(sensor == null)
-                    return Json(@"{ ""error"": ""Sensor serial number not found"" }");
-
-                
-                int statusType = (int)token.SelectToken("StatusType");
-                String statusValue = (string)token.SelectToken("Value");
-
-                var status = new SensorStatus();
-                status.Sensor = sensor;
-                sensor.Statuses.Add(status);
-                status.StatusType = (SensorStatusType) statusType;
-                status.Value = statusValue;
-                status.UpdatedAt = DateTime.Now;
-                status.CreatedAt = DateTime.Now;
-                db.SensorStatuses.Add(status);
-                db.SaveChanges();
-                return Json("ok");
-            }
-            catch(Exception ex)
-            {
-                return Json(@"{ ""error"": ""Internal server error"" }");
-            }
-            
-
-            
-        }
-
-        /*
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-        */
-
-        /*
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-        */
     }
 }

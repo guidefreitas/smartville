@@ -11,6 +11,7 @@ namespace Smartville.Models
         public Sensor()
         {
             this.Statuses = new List<SensorStatus>();
+            this.TimeZone = -3;
         }
 
         [Required]
@@ -26,6 +27,8 @@ namespace Smartville.Models
         [Required]
         public String SerialNumber { get; set; }
 
+        [Required]
+        public double TimeZone { get; set; }
 
         public String Address { get; set; }
 

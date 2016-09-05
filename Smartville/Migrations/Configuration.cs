@@ -17,7 +17,10 @@ namespace Smartville.Migrations
         {
             context.Countries.Add(new Country
             {
-                Name = "Brasil"
+                Name = "Brasil",
+                CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)),
+                UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3))
+
             });
 
             context.SaveChanges();
@@ -26,7 +29,9 @@ namespace Smartville.Migrations
             {
                 Name = "Santa Catarina",
                 Code = "SC",
-                Country = context.Countries.First()
+                Country = context.Countries.First(),
+                CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)),
+                UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3))
             });
 
             context.SaveChanges();
@@ -34,7 +39,9 @@ namespace Smartville.Migrations
             context.Cities.Add(new City
             {
                 Name = "Joinville",
-                State = context.States.First()
+                State = context.States.First(),
+                CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)),
+                UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3))
             });
 
             context.SaveChanges();
@@ -65,11 +72,14 @@ namespace Smartville.Migrations
             {
                 Name = "Defesa Civil",
                 City = context.Cities.First(),
-                Administrator = user
+                Administrator = user,
+                CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)),
+                UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3))
             });
 
             context.SaveChanges();
 
+            
             context.Sensors.Add(new Sensor
             {
                 Address = "Rua teste",
@@ -78,12 +88,14 @@ namespace Smartville.Migrations
                 Longitude = 12.00,
                 Name = "Sensor 1",
                 SerialNumber = "1",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                TimeZone = -3,
+                CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3)),
+                UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3))
+
             });
 
             context.SaveChanges();
-
+            /*
             for(int i = 0; i < 100; i++)
             {
                 context.SensorStatuses.Add(new SensorStatus
@@ -97,7 +109,7 @@ namespace Smartville.Migrations
 
                 context.SaveChanges();
             }
-            
+            */
 
             
         }

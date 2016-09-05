@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\SensorController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\CityController.cs" />
@@ -5320,6 +5321,8 @@
     <Content Include="Areas\Admin\Views\City\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\City\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\City\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sensor\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sensor\Detail.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Smartville - Web Deploy.pubxml" />
     <Content Include="Views\Authentication\Login.cshtml" />

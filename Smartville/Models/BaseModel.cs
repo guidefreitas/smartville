@@ -7,16 +7,16 @@ namespace Smartville.Models
     {
         public BaseModel()
         {
-            this.CreatedAt = DateTime.Now;
-            this.UpdatedAt = DateTime.Now;
+            this.CreatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3));
+            this.UpdatedAt = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(-3));
         }
 
         public long Id { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime UpdatedAt { get; set; }
+        public DateTimeOffset UpdatedAt { get; set; }
     }
 }

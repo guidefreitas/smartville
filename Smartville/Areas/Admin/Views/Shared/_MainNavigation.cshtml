@@ -82,9 +82,9 @@
 
                             <!--Submenu-->
                             <ul class="collapse">
-                                <li><a href="layouts-collapsed-navigation.html">Sensores</a></li>
+                                <li>@Html.ActionLink("Sensores", "Index", new { area = "Admin", controller = "Sensor" })</li>
                                 <li class="list-divider"></li>
-                                <li><a href="layouts-aside-right-side.html">Cadastrar um novo sensor</a></li>
+                                <li>@Html.ActionLink("Cadastrar um novo sensor", "Create", new { area = "Admin", controller = "Sensor" })</li>
                             </ul>
                         </li>
 

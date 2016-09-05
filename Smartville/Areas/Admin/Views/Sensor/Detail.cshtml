@@ -1,0 +1,154 @@
+﻿@model Smartville.Models.Sensor
+@{
+    ViewBag.Title = "Sensor";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sensores</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Id</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.Id">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Num. Série</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.SerialNumber">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Nome</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.Name">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Cidade</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.City.Name">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Endereço</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.Address">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Latitude</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.Latitude">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Longitude</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.Longitude">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Time Zone</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" disabled value="@Model.TimeZone">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="map" style="width: 600px; height: 350px;" ></div>
+                    </div>
+                </div>
+              
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Atualizações deste sensor</h3>
+
+                        @if (Model.Statuses.Count > 0)
+                        {
+                            <div class="table-responsive">
+                                <table id="demo-dt-basic" class="table table-striped" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <td>Id</td>
+                                            <td>Tipo</td>
+                                            <td>Data</td>
+                                            <td>Valor</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var status in Model.Statuses.OrderByDescending(m => m.Id).Take(20))
+                                        {
+                                            <tr>
+                                                <td>@status.Id</td>
+                                                <td>@status.StatusType.ToString()</td>
+                                                <td>@status.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                                <td>@status.Value</td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p>Nenhuma atualização disponível</p>
+                        }
+                        
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{ 
+     <script>
+         function initMap() {
+             var myLatLng = { lat: @Model.Latitude.ToString().Replace(",","."), lng: @Model.Longitude.ToString().Replace(",", ".") };
+
+             var map = new google.maps.Map(document.getElementById('map'), {
+                 center: myLatLng,
+                 scrollwheel: false,
+                 zoom: 18
+             });
+
+             var marker = new google.maps.Marker({
+                 map: map,
+                 position: myLatLng,
+                 title: '@Model.Name'
+             });
+         }
+     </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIc5sBhWgPcJZxSbM-PM8_DIUVLMHOcuY&callback=initMap"
+        async defer></script>
+}
